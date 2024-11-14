@@ -24,7 +24,7 @@ document.getElementById('weatherForm').addEventListener('submit', async (e) => {
       <p>${data.description}</p>
       <p>Temperature: ${data.temperature} °F</p>
       <p>Wind Speed: ${data.wind_speed} mph</p>
-      <img src="icons/${data.condition}.svg" alt="${data.condition}">
+      <img src="public/icons/${data.condition}.svg" alt="${data.condition}">
     `;
     document.body.style.backgroundColor = getThemeColor(data.condition);
   }

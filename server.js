@@ -6,8 +6,7 @@ const PORT = process.env.PORT || 3001;
 const API_KEY = process.env.OPENWEATHER_API_KEY;
 console.log("API Key:", API_KEY);
 
-app.use(express.static(''));
-
+app.use(express.static(__dirname)); // Serves files from the root
 
 app.get('/weather', async (req, res) => {
     const { city, state } = req.query;
@@ -27,7 +26,6 @@ app.get('/weather', async (req, res) => {
         }
 
         const { lat, lon } = geoData[0];
-
         const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&appid=${API_KEY}`;
         const weatherResponse = await fetch(weatherUrl);
         const weatherData = await weatherResponse.json();
