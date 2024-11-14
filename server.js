@@ -5,7 +5,7 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 const API_KEY = process.env.OPENWEATHER_API_KEY;
 console.log("API Key:", API_KEY);
-
+app.use(express.static(''));
 app.use(express.static('public'));
 
 app.get('/weather', async (req, res) => {
